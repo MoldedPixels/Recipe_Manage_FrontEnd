@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+        <div class="form-group input-group-lg">
+            <input required type="text" class="form-control" placeholder="Name" formControlName="name" required >
+        </div>
+        <div class="form-group input-group-lg">
+            <input required type="number" class="form-control" placeholder="cuisine" formControlName="cuisine" required >
+        </div>
+        <div *ngFor="let ingredient of ingredientMap | keyvalue">
+          <h6>{{ingredient.key.name}}</h6>
+        </div>
+        <button (click)="addIngredient()" *ngIf="!addingIngredient" class="btn btn-danger btn-block btn-lg">Add Ingredient</button>
+        <div *ngIf="addingIngredient">
+            <div *ngFor="let ingredient of allIngredients" (click)="onSelect(ingredient)">
+              <h6>{{ingredient.name}}</h6>
+            </div>
+        </div>
+        <div class="form-group input-group-lg">
+            <input required type="text" class="form-control" placeholder="body" formControlName="body" required >
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg">Create</button>
+        </div>
+    </form>
+</div>

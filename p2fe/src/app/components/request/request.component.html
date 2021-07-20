@@ -1,0 +1,4 @@
+<div *ngIf="!hasForm">
+  <button (click)="newRecipeRequest()">Create new recipe request</button>
+</div>
+<app-requestform *ngIf="hasForm" [onFinish]="requestComplete"></app-requestform>
