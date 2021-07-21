@@ -1,0 +1,19 @@
+<div>
+    <h1>Reviews</h1>
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="name" class="form-label">ID (required)</label>
+            <input type="text" class="form-control" id="retrievalId" formControlName="idNum" required>
+        </div>
+        <div class="mb-3">
+            <label for="id-type" class="form-label">What type of id it submitted? <span>*</span></label>
+            <select class="form-control" id="location" formControlName="type" required>
+                <option>Review</option>
+                <option>User</option>
+                <option>Recipe</option>
+            </select>
+        </div>
+        <br>
+        <button id="submit-request" type="submit" [disabled]="!reviewForm.valid" class="btn btn-lg btn-custom">Submit</button>
+    </form>
+</div>
