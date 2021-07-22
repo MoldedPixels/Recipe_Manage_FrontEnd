@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IngredientsService } from '../../services/ingredients.service'
-import { Ingredients } from '../../Ingredients';
+import { Ingredients } from '../../interfaces/ingredients';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
@@ -32,12 +32,7 @@ export class IngredientsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Start of ngOnInit');
-    this.ingredientsService.getIngredients().subscribe(i => {
-      this.ingredients = i;
-      for(let j = 0 ; j < i.length; j++){
-        this.check[j] = false;
-      }
-    }); //storing the ingredients in the variable array ingredients
+    this.ingredientsService.getIngredients().subscribe(ingred => {this.ingredients = ingred;ingred.forEach((ingre,index) => this.check[index] = false)});
   }
 
   onSubmit(){
@@ -58,8 +53,8 @@ export class IngredientsComponent implements OnInit {
 
   onRemove(ingredient) {
     console.log(ingredient)
-    console.log(this.ingredient)
-    this.ingredientsService.removeIngredient(ingredient).subscribe(() => this.ingredients = this.ingredients.filter(i => i.id !== ingredient.id));
+    console.log(ingredient)
+    this.ingredientsService.removeIngredient(ingredient).subscribe();
   }
 
   onSelectedRemove() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ingredients } from '../Ingredients';
+import { Ingredients } from '../interfaces/ingredients';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,9 +21,12 @@ export class IngredientsService {
     return this.http.get<Ingredients[]>(this.apiUrl);
   }
 
-  removeIngredient(ingredient: Ingredients): Observable<Ingredients>{
+  removeIngredient(ingredient: Ingredients): Observable<void>{
+    console.log(ingredient)
+    console.log(ingredient.id)
     const url = `${this.apiUrl}/${ingredient.id}`;
-    return this.http.delete<Ingredients>(url);
+    console.log(url);
+    return this.http.delete<void>(url);
   }
 
   updateIngredient(ingredient: Ingredients): Observable<Ingredients>{
