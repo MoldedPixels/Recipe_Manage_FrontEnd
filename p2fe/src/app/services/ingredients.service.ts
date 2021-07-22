@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class IngredientsService {
-  private apiUrl = 'http://localhost:5000/ingredients';
+  private apiUrl = 'http://localhost:8080/ingredient';
   constructor(private http: HttpClient) { }
 
   getIngredients(): Observable<Ingredients[]>{

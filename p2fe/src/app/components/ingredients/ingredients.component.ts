@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IngredientsService } from '../../services/ingredients.service'
 import { Ingredients } from '../../Ingredients';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -61,10 +62,20 @@ export class IngredientsComponent implements OnInit {
     this.ingredientsService.removeIngredient(ingredient).subscribe(() => this.ingredients = this.ingredients.filter(i => i.id !== ingredient.id));
   }
 
+  onSelectedRemove() {
+    this.check.forEach((check,index) => {
+      if (check){
+        this.ingredientsService.removeIngredient(this.ingredients[index]).subscribe();
+      }
+    })
+  }
+
+  onAlert(){
+    
+  }
+
   onToggleSelect(i){
     this.check[i] = !this.check[i];
-    for(let i = 0 ; i < this.ingredients.length; i++){
-      console.log(this.check[i]);
-    }
+    this.check.forEach(c => console.log(c));
   }
 }

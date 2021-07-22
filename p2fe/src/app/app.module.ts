@@ -1,13 +1,8 @@
 //MODULE
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
-import { FormsModule} from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
-=======
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
->>>>>>> 2490586efade6a294d2b3967cc6939a919eb7fa9
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -30,13 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-<<<<<<< HEAD
-    FormsModule,
-    HttpClientModule
-=======
     HttpClientModule,
     FormsModule
->>>>>>> 2490586efade6a294d2b3967cc6939a919eb7fa9
   ],
   providers: [],
   bootstrap: [AppComponent]
