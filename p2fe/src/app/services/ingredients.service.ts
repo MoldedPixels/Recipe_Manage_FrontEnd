@@ -22,15 +22,12 @@ export class IngredientsService {
   }
 
   removeIngredient(ingredient: Ingredients): Observable<void>{
-    console.log(ingredient)
-    console.log(ingredient.id)
-    const url = `${this.apiUrl}/${ingredient.id}`;
-    console.log(url);
+    const url = `${this.apiUrl}/${ingredient.ingredientId}`;
     return this.http.delete<void>(url);
   }
 
   updateIngredient(ingredient: Ingredients): Observable<Ingredients>{
-    const url = `${this.apiUrl}/${ingredient.id}`;
+    const url = `${this.apiUrl}/${ingredient.ingredientId}`;
     return this.http.put<Ingredients>(url, ingredient, httpOptions);
   }
 

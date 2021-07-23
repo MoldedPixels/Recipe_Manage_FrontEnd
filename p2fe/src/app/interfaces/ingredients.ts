@@ -1,5 +1,5 @@
 export interface Ingredients{
-    id: Number;
+    ingredientId: Number;
     name: String;
     unit: String;
 }
