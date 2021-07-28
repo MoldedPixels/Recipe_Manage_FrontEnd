@@ -1,9 +1,12 @@
+//MODULE
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+//COMPONENTS
 import { AppComponent } from './app.component';
+import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesComponent } from './components/recipes/recipes.component';
@@ -15,7 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HeaderComponent,
     RecipesComponent,
-    ProfileComponent
+    ProfileComponent,
+    IngredientsComponent
   ],
   imports: [
     BrowserModule,
