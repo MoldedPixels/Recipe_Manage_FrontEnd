@@ -14,10 +14,8 @@
       <form class="form-inline my-2 my-lg-0 ms-auto" (ngSubmit)="loggedIn? logout() : ((show==true && userId!='') ? login() : toggleShow())">
         <ul class="navbar-nav ml-auto">
           <li *ngIf="loggedIn" class="nav-item active loginDetails">
-            <p>
-              Logged in as:<br>
-              {{fullName}}
-            </p>
+            Logged in as:<br>
+            {{fullName}}
           </li>
           <li *ngIf="show && !loggedIn" class="nav-item active">
             <input class="form-control" id="userId" name="userId" placeholder="Enter ID" [(ngModel)]="userId">
