@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -8,8 +9,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userId!: string;
+  userId: string="";
+  fullName: string ="";
   loggedIn: boolean= false;
+  show: boolean= false;
   subscription: Subscription;
   constructor(private authentication: AuthenticationService) {
     this.subscription=this.authentication.loggedInObs().subscribe((value)=>this.loggedIn=value);
@@ -20,7 +23,8 @@ export class HeaderComponent implements OnInit {
   login(){
     if(this.userId!==null&&this.userId!==""){
       this.authentication.login(this.userId).subscribe(response=>{
-        //maybe a welcome firstname lastname
+        let res =response as User;
+        this.fullName=res.firstname+" "+res.lastname;
       })
       this.userId="";
     }
@@ -28,10 +32,8 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.authentication.logout()
   }
-  refresh(){
-    console.log("check")
-    this.authentication.refreshCreds();
+  toggleShow(){
+    this.show=!this.show;
   }
-  //ca1f9f80-e8ca-11eb-99d6-d79ab99217ff
 
 }

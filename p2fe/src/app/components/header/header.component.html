@@ -11,16 +11,20 @@
           <a class="nav-link" href="ingredients">Ingredients</a>
       </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 ms-auto" (ngSubmit)="loggedIn? logout() : login()">
+      <form class="form-inline my-2 my-lg-0 ms-auto" (ngSubmit)="loggedIn? logout() : ((show==true && userId!='') ? login() : toggleShow())">
         <ul class="navbar-nav ml-auto">
-          <li *ngIf="loggedIn==false" class="nav-item active">
+          <li *ngIf="loggedIn" class="nav-item active loginDetails">
+            Logged in as:<br>
+            {{fullName}}
+          </li>
+          <li *ngIf="show && !loggedIn" class="nav-item active">
             <input class="form-control" id="userId" name="userId" placeholder="Enter ID" [(ngModel)]="userId">
           </li>
-          <li *ngIf="loggedIn==false" class="nav-item active">
+          <li *ngIf="show && !loggedIn" class="nav-item active">
             <input class="form-control mr-sm-2" id="password" name="password" placeholder="no passwords" disabled="disabled">
           </li>
           <li class="nav-item active">
-            <button class="btn my-2 my-sm-0" [ngClass]="{'btn-outline-success': !loggedIn, 'btn-outline-danger': loggedIn}" type="submit">{{loggedIn? 'logout': 'login'}}</button>
+            <button class="btn my-2 my-sm-0" [ngClass]="{'btn-outline-success': !(loggedIn || (show && userId=='')), 'btn-outline-danger': loggedIn || (show && userId=='')}" type="submit">{{loggedIn ? 'logout' : ((show && userId=="") ? 'close': 'login')}}</button>
           </li>
         </ul>        
       </form>
