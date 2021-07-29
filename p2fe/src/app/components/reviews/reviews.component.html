@@ -16,4 +16,15 @@
         <br>
         <button id="submit-request" type="submit" [disabled]="!reviewForm.valid" class="btn btn-lg btn-custom">Submit</button>
     </form>
+    <div *ngIf ="(this.results == 1)">
+        <h1>Reviews:</h1>
+        <div *ngFor = "let review of reviews">
+            <p>Review Id: {{review.reviewId}}</p>
+            <p>User Id: {{review.userId}}</p>
+            <p>Recipe Id: {{review.recipeId}}</p>
+            <p>Score: {{review.score}}</p>
+            <p>Review: {{review.body}}</p>
+            <br />
+        </div>
+    </div>
 </div>
