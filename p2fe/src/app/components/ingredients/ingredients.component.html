@@ -1,0 +1,25 @@
+<h1>List of Ingredients for Recipe </h1>
+
+<div>
+    <div *ngFor="let ingredient of ingredients; let i = index" [ngClass]="check[i] ? 'selected' : 'unselected'" class = "toggle" (click)="onToggleSelect(i)">
+        <p> {{ingredient.name}} : {{ingredient.unit}}  <button (click)="onRemove(ingredient)">Remove</button></p> 
+    </div>
+</div>
+
+
+
+<div>
+    <button type="button" class="btn" (click)="onSelectedRemove()">Remove Selected Items</button>
+    <p>Add Ingredient</p>
+    <form action="" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <label for="name">Name: </label>
+            <input type="text" name="text" id="text" [(ngModel)]="text" placeholder="Ingredient" />
+        </div>
+        <div class="form-control">
+            <label for="unit">Units: </label>
+            <input type="text" name="unit" id="unit" [(ngModel)]="unit" placeholder="Units" />
+        </div>
+        <input type="submit" value="Add" class="btn btn-block"/>
+    </form>
+</div>

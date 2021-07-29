@@ -1,0 +1,11 @@
+.unselected {
+    color : black;
+    background-color : rgb(218, 218, 218);
+    border-style: solid;
+}
+
+.selected{
+    color : rgb(255, 255, 255);
+    background-color : rgb(255, 30, 30);
+    border-style: groove;
+}

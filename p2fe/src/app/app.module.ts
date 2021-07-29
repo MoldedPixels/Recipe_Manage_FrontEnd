@@ -1,7 +1,10 @@
+//MODULE
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//COMPONENTS
 import { AppComponent } from './app.component';
+import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesComponent } from './components/recipes/recipes.component';
@@ -17,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     RecipesComponent,
     ProfileComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    IngredientsComponent
   ],
   imports: [
     BrowserModule,
