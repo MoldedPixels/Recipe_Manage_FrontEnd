@@ -35,21 +35,36 @@ export class ReviewsComponent implements OnInit {
       if (this.reviewForm.invalid) return;
       this.reviewService.getReviewsById(this.reviewForm.controls['idNum'].value).subscribe((data) => {
         console.log(data);
-        this.reviews = data as Review[];
+        if(Array.isArray(data)){
+          this.reviews = data as Review[];
+        } else {
+          this.reviews = [];
+          this.reviews.push(data);
+        }
         this.results = 1;
       });
     } else if(this.reviewForm.controls['type'].value == 'User'){
       if (this.reviewForm.invalid) return;
       this.reviewService.getReviewsByUser(this.reviewForm.controls['idNum'].value).subscribe((data) => {
         console.log(data);
-        this.reviews = data as Review[];
+        if(Array.isArray(data)){
+          this.reviews = data as Review[];
+        } else {
+          this.reviews = [];
+          this.reviews.push(data);
+        }
         this.results = 1;
       });
     } else if(this.reviewForm.controls['type'].value == 'Recipe'){
       if (this.reviewForm.invalid) return;
       this.reviewService.getReviewsByRecipe(this.reviewForm.controls['idNum'].value).subscribe((data) => {
         console.log(data);
-        this.reviews = data as Review[];
+        if(Array.isArray(data)){
+          this.reviews = data as Review[];
+        } else {
+          this.reviews = [];
+          this.reviews.push(data);
+        }
         this.results = 1;
       });
     } else {
